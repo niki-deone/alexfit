@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — AlexFit</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.review-card { background: var(--dark2); border: 1px solid var(--border); border-radius: 2px; padding: 1.75rem; transition: border-color 0.3s; }
+.review-card:hover { border-color: rgba(201,168,76,0.3); }
+.stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+.review-card blockquote { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-style: italic; margin-bottom: 1.25rem; }
+.reviewer { display: flex; align-items: center; gap: 0.75rem; }
+.reviewer-avatar { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; color: var(--dark); flex-shrink: 0; }
+.reviewer-name { font-size: 0.875rem; font-weight: 500; }
+.reviewer-detail { font-size: 0.75rem; color: var(--muted); margin-top: 1px; }
+.rating-summary { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center; background: var(--dark2); border: 1px solid var(--border); border-radius: 2px; padding: 2.5rem; margin-bottom: 3rem; }
+.rating-big { text-align: center; }
+.rating-big .num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); line-height: 1; }
+.rating-big .stars-big { color: var(--gold); font-size: 1.1rem; margin: 0.5rem 0; }
+.rating-big p { font-size: 0.8rem; color: var(--muted); }
+.rating-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+.rating-bar { display: flex; align-items: center; gap: 1rem; }
+.rating-bar span { font-size: 0.8rem; color: var(--muted); width: 1.5rem; text-align: right; flex-shrink: 0; }
+.bar-track { flex: 1; height: 4px; background: var(--dark3); border-radius: 2px; }
+.bar-fill { height: 100%; background: var(--gold); border-radius: 2px; }
+.rating-bar .count { font-size: 0.8rem; color: var(--muted); width: 2rem; flex-shrink: 0; }
+@media (max-width: 900px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+  .rating-summary { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Alex<span>Fit</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="reviews.html" class="active">Reviews</a>
+    <a href="contact.html">Contact</a>
+    <button class="nav-cta" onclick="openModal()">Book a call</button>
+  </div>
+  <button class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="programs.html" onclick="toggleMenu()">Programs</a>
+  <a href="reviews.html" onclick="toggleMenu()">Reviews</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <button class="mobile-cta" onclick="toggleMenu(); openModal()">Book a free call</button>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="section-tag">Reviews</div>
+  <h1>What clients<br><em style="color:var(--gold)">say</em></h1>
+  <p>Real results from real people. No filters, no actors.</p>
+</div>
+
+<section>
+  <div class="container">
+    <div class="rating-summary reveal">
+      <div class="rating-big">
+        <div class="num">4.9</div>
+        <div class="stars-big"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>Based on 127 reviews</p>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar"><span>5</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div><span class="count">117</span></div>
+        <div class="rating-bar"><span>4</span><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><span class="count">8</span></div>
+        <div class="rating-bar"><span>3</span><div class="bar-track"><div class="bar-fill" style="width:1.5%"></div></div><span class="count">2</span></div>
+        <div class="rating-bar"><span>2</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="count">0</span></div>
+        <div class="rating-bar"><span>1</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="count">0</span></div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"Lost 12kg in 4 months without feeling like I was starving. Alex actually listens and adjusts the plan when life gets in the way."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">MK</div><div><div class="reviewer-name">Markus K.</div><div class="reviewer-detail">Lost 12kg · Fat Loss program</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"Best investment I made this year. My squat went from 60kg to 110kg in 6 months. The programming is just on another level."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">SL</div><div><div class="reviewer-name">Sophie L.</div><div class="reviewer-detail">+50kg squat · Strength program</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"As a competitive runner I was skeptical about strength training. Alex changed my mind. My 10k time dropped by 4 minutes."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">TH</div><div><div class="reviewer-name">Tobias H.</div><div class="reviewer-detail">-4min 10k · Athletic program</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"I tried 3 other coaches before Alex. None of them came close. Within 2 months I had more energy and confidence than I had in years."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">LM</div><div><div class="reviewer-name">Laura M.</div><div class="reviewer-detail">Body recomposition · 6 months</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"The nutrition coaching alone was worth it. Simple, practical advice that I can actually stick to. No weird diets or expensive supplements."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">JB</div><div><div class="reviewer-name">Jonas B.</div><div class="reviewer-detail">Fat Loss · 4 months</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <blockquote>"I travel for work constantly. Alex always had a modified plan ready for my hotel room. Never missed a week in 8 months."</blockquote>
+        <div class="reviewer"><div class="reviewer-avatar">KW</div><div><div class="reviewer-name">Katrin W.</div><div class="reviewer-detail">Muscle & Strength · 8 months</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 AlexFit Berlin · <a href="mailto:hello@alexfit.de">hello@alexfit.de</a> · +49 30 123 4567</p>
+</footer>
+
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="formContent">
+      <h2>Book a free call</h2>
+      <p>Fill in your details and I'll reach out within 24 hours.</p>
+      <div class="form-group"><label>Full name</label><input type="text" id="fname" placeholder="Your name"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="femail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="+49 ..."></div>
+      <div class="form-group"><label>Program interest</label><select><option value="">Select a program</option><option>Fat Loss</option><option>Muscle & Strength</option><option>Athletic Performance</option><option>Not sure yet</option></select></div>
+      <div class="form-group"><label>Your goal</label><textarea placeholder="What do you want to achieve?"></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Send message</button>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <i class="fa-solid fa-circle-check" style="font-size:3rem;color:var(--gold);margin-bottom:1rem"></i>
+      <h3>Message sent!</h3><p>Thanks! I'll get back to you within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></div>
+
+<script>
+window.addEventListener('scroll', () => { document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400); });
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function openModal() { document.getElementById('modal').classList.add('open'); document.getElementById('formContent').style.display='block'; document.getElementById('formSuccess').style.display='none'; document.body.style.overflow='hidden'; }
+function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+function handleOverlayClick(e) { if (e.target===document.getElementById('modal')) closeModal(); }
+function submitForm() { if (!document.getElementById('fname').value||!document.getElementById('femail').value){alert('Please fill in your name and email.');return;} document.getElementById('formContent').style.display='none'; document.getElementById('formSuccess').style.display='block'; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+const observer = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*80); }); }, {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

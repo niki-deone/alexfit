@@ -3,7 +3,7 @@
 A premium multi-page website for a personal trainer business. Built as a portfolio project showcasing modern web design and clean HTML/CSS/JS.
 
 ## Live Demo
-[View on Vercel →](https://alexfit.vercel.app)
+[View on Vercel →](https://alexfit-omega.vercel.app)
 
 ## Pages
 - **Home** — Hero, stats, feature highlights, CTA
@@ -45,4 +45,4 @@ alexfit/
 ```
 
 ---
-Built by Nikita Danilov · [Portfolio](https://github.com/yourusername)
+Built by Nikita Danilov · [Portfolio](https://github.com/niki-deone)
